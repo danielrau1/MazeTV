@@ -9,8 +9,13 @@
 <div *ngIf="shows">
   <br>
   <ol>
-    <li *ngFor="let show of shows" (click)="goToEpisodes(show)">
+    <li *ngFor="let show of shows" (click)="moreInfo(show)">
       {{show.show.name}} {{show.show.id}}
+      <div *ngIf="showClicked===show.show.id && clicked">
+        {{show.show.url}}
+        <img src="{{show.image.medium}}">
+        <button (click)="goToEpisodes(show)" >Get Episodes</button>
+      </div>
 
     </li>
   </ol>

@@ -2,13 +2,52 @@
   show id is {{showId}}
 </p>
 
-<!--Fetching the episodes when a show from the shows list in the shows component is clicked on -->
-<div *ngIf="episodes">
+<!-- (1) Fetching the episodes when a show from the shows list in the shows component is clicked on -->
+<!--<div *ngIf="episodes">-->
+  <!--<br>-->
+  <!--<ol>-->
+    <!--<li *ngFor="let episode of episodes">-->
+      <!--{{episode.name}}-->
+
+    <!--</li>-->
+  <!--</ol>-->
+
+<!--</div>-->
+
+
+<!-- (2) Fetching the seasons of a show when click on show's button-->
+<!--<div *ngIf="seasons">-->
+  <!--<br>-->
+  <!--<ol>-->
+    <!--<li *ngFor="let season of seasons" (click)="showEpisodes(season)">-->
+      <!--{{season.number}}-->
+      <!--<div *ngIf = "clicked2 && season.number==seasonClicked">-->
+        <!--<ol>-->
+
+          <!--<li *ngFor="let episode of episodes">-->
+            <!--<span *ngIf="episode.season==season.number">-->
+              <!--{{episode.name}}-->
+            <!--</span>-->
+          <!--</li>-->
+        <!--</ol>-->
+      <!--</div>-->
+    <!--</li>-->
+  <!--</ol>-->
+
+<!--</div>-->
+
+<div *ngIf="seasons">
   <br>
   <ol>
-    <li *ngFor="let episode of episodes">
-      {{episode.name}}
-
+    <li *ngFor="let season of seasons" (click)="showEpisodes(season)">
+      {{season.number}}
+      <div *ngIf = "clicked2 && season.number==seasonClicked">
+       <span *ngFor="let episode of episodes">
+         <span *ngIf = "episode.season==season.number">
+           {{episode.name}}<br>
+         </span>
+       </span>
+      </div>
     </li>
   </ol>
 

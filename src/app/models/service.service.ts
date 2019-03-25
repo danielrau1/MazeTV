@@ -18,4 +18,10 @@ export class ServiceService {
   getEpisodes(u) {
     return this.http.get('http://api.tvmaze.com/shows/' + u + '/episodes');
   }
+
+  getSeasons(u){
+    return this.http.get('http://api.tvmaze.com/shows/' + u + '/seasons');
+  }
+
+
 }

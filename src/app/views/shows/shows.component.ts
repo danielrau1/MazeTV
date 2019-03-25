@@ -11,6 +11,10 @@ export class ShowsComponent implements OnInit {
 
   keyWords: string = '';
   shows = [];
+
+  clicked = false;
+  showClicked = '';
+
   constructor(private service: ServiceService, private router: Router) { }
 
   ngOnInit() {
@@ -28,6 +32,12 @@ export class ShowsComponent implements OnInit {
   // (1)
   goToEpisodes(show) {
     this.router.navigate(['/episodes', show.show.id]);
+  }
+
+  moreInfo(show){
+    this.clicked = !this.clicked;
+    this.showClicked = show.show.id;
+    console.log('showClicked: ' + this.showClicked + 'clicked: ' + this.clicked);
   }
 
 }
