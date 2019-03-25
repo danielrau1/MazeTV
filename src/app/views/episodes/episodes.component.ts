@@ -10,8 +10,8 @@ import {ServiceService} from '../../models/service.service';
 export class EpisodesComponent implements OnInit {
 public showId;
 
-episodes = [];
-seasons = [];
+episodes: any;
+seasons: any;
 seasonClicked = '';
 clicked2 = false;
 
@@ -29,7 +29,7 @@ clicked2 = false;
     //   console.log(this.episodes);
     // });
 
-    //(2) To get the seasons when click on button of the show
+    // (2) To get the seasons when click on button of the show
     this.service.getSeasons(this.showId).subscribe( search3 => {
       this.seasons = search3;
       console.log(this.seasons);

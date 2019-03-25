@@ -9,8 +9,8 @@ import {Router} from '@angular/router';
 })
 export class ShowsComponent implements OnInit {
 
-  keyWords: string = '';
-  shows = [];
+  keyWords = '';
+  shows: any;
 
   clicked = false;
   showClicked = '';
@@ -34,7 +34,7 @@ export class ShowsComponent implements OnInit {
     this.router.navigate(['/episodes', show.show.id]);
   }
 
-  moreInfo(show){
+  moreInfo(show) {
     this.clicked = !this.clicked;
     this.showClicked = show.show.id;
     console.log('showClicked: ' + this.showClicked + 'clicked: ' + this.clicked);
