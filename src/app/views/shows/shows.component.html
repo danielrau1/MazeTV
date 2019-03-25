@@ -1,4 +1,5 @@
 
+
 <!--Getting shows based on key words-->
 <input type="text" [(ngModel)]="keyWords" >
 <button (click)="searchShows()">Search shows</button>
@@ -8,7 +9,7 @@
 <div *ngIf="shows">
   <br>
   <ol>
-    <li *ngFor="let show of shows">
+    <li *ngFor="let show of shows" (click)="goToEpisodes(show)">
       {{show.show.name}} {{show.show.id}}
 
     </li>

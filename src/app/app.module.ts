@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShowsComponent } from './views/shows/shows.component';
+import { EpisodesComponent } from './views/episodes/episodes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShowsComponent
+    ShowsComponent,
+    EpisodesComponent
   ],
   imports: [
     BrowserModule,

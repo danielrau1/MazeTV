@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ServiceService} from '../../models/service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-shows',
@@ -10,7 +11,7 @@ export class ShowsComponent implements OnInit {
 
   keyWords: string = '';
   shows = [];
-  constructor(private service: ServiceService) { }
+  constructor(private service: ServiceService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -22,6 +23,11 @@ export class ShowsComponent implements OnInit {
       console.log(this.shows);
     });
 
+  }
+
+  // (1)
+  goToEpisodes(show) {
+    this.router.navigate(['/episodes', show.show.id]);
   }
 
 }

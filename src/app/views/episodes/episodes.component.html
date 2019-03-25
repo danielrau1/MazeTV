@@ -1,0 +1,15 @@
+<p>
+  show id is {{showId}}
+</p>
+
+<!--Fetching the episodes when a show from the shows list in the shows component is clicked on -->
+<div *ngIf="episodes">
+  <br>
+  <ol>
+    <li *ngFor="let episode of episodes">
+      {{episode.name}}
+
+    </li>
+  </ol>
+
+</div>
