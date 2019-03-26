@@ -36,17 +36,86 @@
 
 <!--</div>-->
 
+
+
+
+
+<!--(3) The skeleton version-->
+<!--<div *ngIf="seasons">-->
+  <!--<br>-->
+  <!--<ol>-->
+    <!--<li *ngFor="let season of seasons" (click)="showEpisodes(season)">-->
+      <!--{{season.number}}-->
+      <!--<div *ngIf = "clicked2 && season.number==seasonClicked">-->
+       <!--<span *ngFor="let episode of episodes">-->
+         <!--<span *ngIf = "episode.season==season.number">-->
+           <!--{{episode.name}}<br>-->
+         <!--</span>-->
+       <!--</span>-->
+      <!--</div>-->
+    <!--</li>-->
+  <!--</ol>-->
+
+<!--</div>-->
+
+
+<!--Time right now: {{" "+time}} <br><br>-->
+<!--{{nextEpisode}}<br><br>-->
+
+<!--<span *ngFor="let episode of episodes">-->
+            <!--DateTime:  {{episode.airdate+" "+episode.airtime}} <br>-->
+       <!--</span>-->
+
+
+
+
+
+<!--Trial with the table-->
+<!--<div *ngIf="seasons">-->
+ <!--<br>-->
+<!--<ol>-->
+<!--<li *ngFor="let season of seasons" (click)="showEpisodes(season)">-->
+<!--{{season.number}}-->
+<!--<div *ngIf = "clicked2 && season.number==seasonClicked">-->
+
+    <!--<table>-->
+      <!--<tr>-->
+        <!--<th>Episode number</th>-->
+        <!--<th>Episode name</th>-->
+      <!--</tr>-->
+      <!--<tr *ngFor="let episode of episodes">-->
+        <!--<td *ngIf = "episode.season==season.number">{{episode.number}}</td>-->
+        <!--<td *ngIf = "episode.season==season.number">{{episode.name}}</td>-->
+      <!--</tr>-->
+    <!--</table>-->
+
+<!--</div>-->
+<!--</li>-->
+<!--</ol>-->
+
+<!--</div>-->
+
+
+
+<!--Trial with the table using the mat sort-->
 <div *ngIf="seasons">
   <br>
   <ol>
     <li *ngFor="let season of seasons" (click)="showEpisodes(season)">
       {{season.number}}
-      <div *ngIf = "clicked2 && season.number==seasonClicked">
-       <span *ngFor="let episode of episodes">
-         <span *ngIf = "episode.season==season.number">
-           {{episode.name}}<br>
-         </span>
-       </span>
+      <div *ngIf = " season.number==seasonClicked">
+
+        <table mat-table matSort>
+          <tr>
+            <th mat-header-cell  mat-sort-header >Episode number</th>
+            <th mat-header-cell  mat-sort-header>Episode name</th>
+          </tr>
+          <tr  *ngFor="let episode of episodes">
+            <td mat-row *ngIf = "episode.season==season.number">{{episode.number}}</td>
+            <td mat-row *ngIf = "episode.season==season.number">{{episode.name}}</td>
+          </tr>
+        </table>
+
       </div>
     </li>
   </ol>
@@ -54,9 +123,53 @@
 </div>
 
 
-Time right now: {{" "+time}} <br><br>
-{{nextEpisode}}<br><br>
 
-<span *ngFor="let episode of episodes">
-            DateTime:  {{episode.airdate+" "+episode.airtime}} <br>
-       </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Trial with the accordion-->
+<!--<mat-accordion *ngIf="seasons">-->
+  <!--<mat-expansion-panel *ngFor="let season of seasons"  >-->
+    <!--<mat-expansion-panel-header>-->
+      <!--<mat-panel-title [innerHTML]="'Season: ' + season.number">-->
+      <!--</mat-panel-title>-->
+      <!--<mat-panel-description [innerHTML]="'Episodes: ' + season.episodeOrder">-->
+      <!--</mat-panel-description>-->
+      <!--<ng-template matExpansionPanelContent>-->
+
+        <!--<button (click)="showEpisodes(season)" >Get Episodes</button>-->
+      <!--</ng-template>-->
+
+
+    <!--</mat-expansion-panel-header>-->
+  <!--</mat-expansion-panel>-->
+
+ <!---->
+
+
+<!--</mat-accordion>-->
+
+<!--<div *ngIf = "clicked2 && season.number==seasonClicked">-->
+      <!--<span *ngFor="let episode of episodes">-->
+      <!--<span *ngIf = "episode.season==season.number">-->
+      <!--{{episode.name}}<br>-->
+      <!--</span>-->
+      <!--</span>-->
+<!--</div>-->

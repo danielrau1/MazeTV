@@ -14,6 +14,8 @@ episodes: any;
 seasons: any;
 seasonClicked = '';
 clicked2 = false;
+
+
 time: Date = new Date();
 diff: any;
 date: any;
@@ -44,12 +46,14 @@ nextEpisode = '';
   // (3) Get the episodes of a certain season
   showEpisodes(season) {
   this.seasonClicked = season.number;
-  this.clicked2 = !this.clicked2;
+  //this.clicked2 = !this.clicked2;
 
   this.service.getEpisodes(this.showId).subscribe( search4 => {
     this.episodes = search4;
     // console.log(this.episodes);
     console.log('Break point 1');
+
+    // For the time to the next episode
     for (let i = 0; i < this.episodes.length; i++) {
       const day = this.episodes[i].airdate;
       const t = this.episodes[i].airtime;

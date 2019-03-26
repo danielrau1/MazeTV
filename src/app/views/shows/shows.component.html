@@ -6,18 +6,41 @@
 {{keyWords}}
 
 
-<div *ngIf="shows">
-  <br>
-  <ol>
-    <li *ngFor="let show of shows" (click)="moreInfo(show)">
-      {{show.show.name}} {{show.show.id}}
-      <div *ngIf="showClicked===show.show.id && clicked">
-        {{show.show.url}}
-        <img src="{{show.image.medium}}">
-        <button (click)="goToEpisodes(show)" >Get Episodes</button>
-      </div>
+<!--<div *ngIf="shows">-->
+  <!--<br>-->
+  <!--<ol>-->
+    <!--<li *ngFor="let show of shows" (click)="moreInfo(show)">-->
+      <!--{{show.show.name}} {{show.show.id}}-->
+      <!--<div *ngIf="showClicked===show.show.id && clicked">-->
+        <!--{{show.show.url}}-->
+        <!--<img src="{{show.image.medium}}">-->
+        <!--<button (click)="goToEpisodes(show)" >Get Episodes</button>-->
+      <!--</div>-->
 
-    </li>
-  </ol>
+    <!--</li>-->
+  <!--</ol>-->
 
-</div>
+<!--</div>-->
+
+
+
+<mat-accordion *ngIf="shows">
+  <mat-expansion-panel *ngFor="let show of shows">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h5 [innerHTML]="show.show.name"></h5>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+
+    <ng-template matExpansionPanelContent>
+      <h5 [innerHTML]="'<u>Show language:</u> ' + show.show.language"></h5>
+      <button (click)="goToEpisodes(show)" >Get Episodes</button>
+    </ng-template>
+
+
+
+  </mat-expansion-panel>
+
+</mat-accordion>
+
