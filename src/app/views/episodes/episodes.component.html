@@ -52,3 +52,11 @@
   </ol>
 
 </div>
+
+
+Time right now: {{" "+time}} <br><br>
+{{nextEpisode}}<br><br>
+
+<span *ngFor="let episode of episodes">
+            DateTime:  {{episode.airdate+" "+episode.airtime}} <br>
+       </span>
