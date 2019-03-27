@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ServiceService} from '../../models/service.service';
 
+
 @Component({
   selector: 'app-episodes',
   templateUrl: './episodes.component.html',
@@ -21,9 +22,12 @@ diff: any;
 date: any;
 nextEpisode = '';
 
+public name = 'Daniel';
+
   constructor(private route: ActivatedRoute, private service: ServiceService) { }
 
   ngOnInit() {
+    // Catch the id of the show which was chosen in the shows.components.html
     const id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.showId = id;
 
@@ -46,7 +50,7 @@ nextEpisode = '';
   // (3) Get the episodes of a certain season
   showEpisodes(season) {
   this.seasonClicked = season.number;
-  //this.clicked2 = !this.clicked2;
+  this.clicked2 = !this.clicked2;
 
   this.service.getEpisodes(this.showId).subscribe( search4 => {
     this.episodes = search4;

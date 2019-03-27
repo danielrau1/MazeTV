@@ -23,5 +23,8 @@ export class ServiceService {
     return this.http.get('http://api.tvmaze.com/shows/' + u + '/seasons');
   }
 
+  getSeasonEpisodes(u) {
+    return this.http.get('http://api.tvmaze.com/seasons/' + u + '/episodes');
+  }
 
 }
