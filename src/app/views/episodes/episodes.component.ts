@@ -33,12 +33,6 @@ public name = 'Daniel';
 
 
 
-    // (1) To get the episodes immediately when click on show
-    // this.service.getEpisodes(this.showId).subscribe( search2 => {
-    //   this.episodes = search2;
-    //   console.log(this.episodes);
-    // });
-
     // (2) To get the seasons when click on button of the show
     this.service.getSeasons(this.showId).subscribe( search3 => {
       this.seasons = search3;

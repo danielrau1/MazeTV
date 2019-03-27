@@ -12,7 +12,7 @@ import { EpisodesComponent } from './views/episodes/episodes.component';
 import {MatExpansionModule} from '@angular/material';
 import {MatTableModule, MatSortModule} from '@angular/material';
 import { SeasonEpisodesComponent } from './views/season-episodes/season-episodes.component';
-import { EpisodeComponent } from './models/episode/episode.component';
+
 
 
 @NgModule({
@@ -20,8 +20,7 @@ import { EpisodeComponent } from './models/episode/episode.component';
     AppComponent,
     ShowsComponent,
     EpisodesComponent,
-    SeasonEpisodesComponent,
-    EpisodeComponent
+    SeasonEpisodesComponent
   ],
   imports: [
     BrowserModule,
