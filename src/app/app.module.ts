@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,7 +13,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShowsComponent } from './views/shows/shows.component';
 import { EpisodesComponent } from './views/episodes/episodes.component';
 import {MatExpansionModule} from '@angular/material';
-import {MatTableModule, MatSortModule} from '@angular/material';
 import { SeasonEpisodesComponent } from './views/season-episodes/season-episodes.component';
 
 
@@ -29,8 +31,9 @@ import { SeasonEpisodesComponent } from './views/season-episodes/season-episodes
     FormsModule,
     HttpClientModule,
     MatExpansionModule,
-    MatSortModule,
-    MatTableModule
+    MatToolbarModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
