@@ -1,29 +1,13 @@
 
 
-<!--Getting shows based on key words-->
+<!--(1.1)Getting shows based on key words: when Click invoke the searchShows function-->
 <input type="text" [(ngModel)]="keyWords" >
 <button (click)="searchShows()">Search shows</button>
 {{keyWords}}
 
 
-<!--<div *ngIf="shows">-->
-  <!--<br>-->
-  <!--<ol>-->
-    <!--<li *ngFor="let show of shows" (click)="moreInfo(show)">-->
-      <!--{{show.show.name}} {{show.show.id}}-->
-      <!--<div *ngIf="showClicked===show.show.id && clicked">-->
-        <!--{{show.show.url}}-->
-        <!--<img src="{{show.image.medium}}">-->
-        <!--<button (click)="goToEpisodes(show)" >Get Episodes</button>-->
-      <!--</div>-->
 
-    <!--</li>-->
-  <!--</ol>-->
-
-<!--</div>-->
-
-
-
+<!--(1.2)When the shows are imported, loop through each show and create its part-->
 <mat-accordion *ngIf="shows">
   <mat-expansion-panel *ngFor="let show of shows">
     <mat-expansion-panel-header>
@@ -32,15 +16,52 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-
+<!--(1.3)The inner part contains more info and the Get Seasons button which invokes the goToSesasons function button to fetch the -->
     <ng-template matExpansionPanelContent>
       <h5 [innerHTML]="'<u>Show language:</u> ' + show.show.language"></h5>
-      <button (click)="goToEpisodes(show)" >Get Episodes</button>
+      <button (click)="goToSeasons(show)" >Get Seasons</button>
     </ng-template>
-
-
-
   </mat-expansion-panel>
-
 </mat-accordion>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- (A.1)VERSION USING THE CLICK-->
+<!--<div *ngIf="shows">-->
+<!--<br>-->
+<!--<ol>-->
+<!--<li *ngFor="let show of shows" (click)="moreInfo(show)">-->
+<!--{{show.show.name}} {{show.show.id}}-->
+<!--<div *ngIf="showClicked===show.show.id && clicked">-->
+<!--{{show.show.url}}-->
+<!--<img src="{{show.image.medium}}">-->
+<!--<button (click)="goToEpisodes(show)" >Get Episodes</button>-->
+<!--</div>-->
+
+<!--</li>-->
+<!--</ol>-->
+
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
 

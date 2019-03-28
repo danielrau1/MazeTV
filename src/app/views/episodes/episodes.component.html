@@ -1,8 +1,4 @@
-<style>
-table, th, td {
-border: 1px solid black;
-}
-</style>
+
 
 <p>
   show id is {{showId}}
@@ -11,7 +7,7 @@ border: 1px solid black;
 
 
 
-<!-- (2) Fetching the seasons of a show when click on show's button-->
+<!--  Fetching the seasons of a show when click on show's button-->
 <!--<div *ngIf="seasons">-->
   <!--<br>-->
   <!--<ol>-->
@@ -36,43 +32,57 @@ border: 1px solid black;
 
 
 
-<!--(3) The skeleton version: double loop-->
+<!-- (2) Once the show id is obtained get that show's seasons and the episodes of each season-->
+<!--(2.1)Double Loop Version-->
+<h3><u>Double Loop Method</u></h3>
+<div *ngIf="seasons">
+  <br>
+  <ol>
+    <!--(2.1) Loop through the seasons and for each season inclue a click showEpisodes function-->
+    <li *ngFor="let season of seasons" (click)="showEpisodes(season)">
+      {{season.number}}
+      <!--(2.1.1) Output episodes for a given season-->
+      <div *ngIf = "clicked2 && season.number==seasonClicked">
+       <span *ngFor="let episode of episodes">
+         <span *ngIf = "episode.season==season.number">
+           {{episode.name}} {{episode.number}} {{season.id}}<br>
+         </span>
+       </span>
+
+      </div>
+    </li>
+  </ol>
+
+</div>
+<!--(2.1.2)-->
+Time right now: {{" "+time}} <br><br>
+{{nextEpisode}}<br><br>
+
+<!--<span *ngFor="let episode of episodes">-->
+            <!--DateTime:  {{episode.airdate+" "+episode.airtime}} <br>-->
+       <!--</span>-->
+
+
+
+
+
+
+
+<!--(2.2) Fetching the episodes for a gives season id using season-episodes component -->
+<h3><u>Send Season ID Method</u></h3>
 <div *ngIf="seasons">
   <br>
   <ol>
     <li *ngFor="let season of seasons" (click)="showEpisodes(season)">
       {{season.number}}
       <div *ngIf = "clicked2 && season.number==seasonClicked">
-        <h4><u>Double Loop Method</u></h4>
-       <span *ngFor="let episode of episodes">
-         <span *ngIf = "episode.season==season.number">
-           {{episode.name}} {{episode.number}} {{season.id}}<br>
-         </span>
-       </span>
-        <h4><u>Put into a table</u></h4>
-        <table>
-          <tr>
-            <th>Name</th><th>Number</th><td>Season</td>
-          </tr>
-          <tr *ngFor="let episode of episodes">
-            <span *ngIf = "episode.season==season.number">
-            <td>{{episode.name}}</td>
-            <td>{{episode.number}}</td>
-            <td>{{season.number}}</td>
-            </span>
-          </tr>
-        </table>
+        <!--(2.2.1) When a season is clicked its id is sent to the season-episode component-->
+      <app-season-episodes [seasonId]="season.id"></app-season-episodes>
       </div>
     </li>
   </ol>
 
 </div>
-Time right now: {{" "+time}} <br><br>
-{{nextEpisode}}<br><br>
-
-<span *ngFor="let episode of episodes">
-            DateTime:  {{episode.airdate+" "+episode.airtime}} <br>
-       </span>
 
 
 
@@ -80,39 +90,7 @@ Time right now: {{" "+time}} <br><br>
 
 
 
-<!--Trial with sending the seasonId -->
-<!--<div *ngIf="seasons">-->
-  <!--<br>-->
-  <!--<ol>-->
-    <!--<li *ngFor="let season of seasons" (click)="showEpisodes(season)">-->
-      <!--{{season.number}}-->
-      <!--<div *ngIf = "clicked2 && season.number==seasonClicked">-->
-      <!--<app-season-episodes [parentData]="season.id"></app-season-episodes>-->
-      <!--</div>-->
-    <!--</li>-->
-  <!--</ol>-->
 
-<!--</div>-->
-<!--<app-season-episodes [parentData]="name"></app-season-episodes>-->
-
-
-<!--Trial with importing the table data - Try to sort-->
-<!--<div *ngIf="seasons">-->
-  <!--<br>-->
-  <!--<ol>-->
-    <!--<li *ngFor="let season of seasons" (click)="showEpisodes(season)">-->
-      <!--{{season.number}}-->
-      <!--<div *ngIf = "clicked2 && season.number==seasonClicked">-->
-        <!--<app-season-episodes [seasonId]="season.id"></app-season-episodes>-->
-      <!--</div>-->
-    <!--</li>-->
-  <!--</ol>-->
-
-<!--</div>-->
-
-
-
-<!--<app-season-episodes [seasonId]="season.id"></app-season-episodes>-->
 
 
 
