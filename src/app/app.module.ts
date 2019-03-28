@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +34,8 @@ import { SeasonEpisodesComponent } from './views/season-episodes/season-episodes
     MatExpansionModule,
     MatToolbarModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

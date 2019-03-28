@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Show} from './show';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +14,8 @@ export class ServiceService {
   constructor(private http: HttpClient) { }
 
   // (1.1) This function is used to fetch the JSON data containing the keywords transmitted
-  getShows(u) {
-    return this.http.get('http://api.tvmaze.com/search/shows?q=' + u);
+  getShows(u): Observable<Show[]> {
+    return this.http.get<Show[]>('http://api.tvmaze.com/search/shows?q=' + u);
   }
 
 

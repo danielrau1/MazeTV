@@ -23,7 +23,7 @@ diff: any;
 date: any;
 nextEpisode = '';
 
-public name = 'Daniel';
+
 
   constructor(private route: ActivatedRoute, private service: ServiceService) { }
 

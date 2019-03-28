@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ServiceService} from '../../models/service.service';
 import {Router} from '@angular/router';
+import {Show} from '../../models/show';
 
 @Component({
   selector: 'app-shows',
@@ -10,7 +11,7 @@ import {Router} from '@angular/router';
 export class ShowsComponent implements OnInit {
 
   keyWords = '';
-  shows: any;
+  shows: Show[];
 
   // clicked = false; showClicked = ''; // (A.1) parameters: IGNORE
 

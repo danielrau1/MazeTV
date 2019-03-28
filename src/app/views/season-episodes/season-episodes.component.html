@@ -5,20 +5,41 @@
 </p>
 
 <!--(2.2.2) Once that have the season id get the episodes of that season -->
+
+
 <div *ngIf="seasonEpisodes">
-  <ol>
-    <li *ngFor="let seasonEpisode of seasonEpisodes">
-      <span>
-      {{seasonEpisode.number}} {{seasonEpisode.name}}
-      </span>
+  <mat-card *ngFor="let seasonEpisode of seasonEpisodes">
+    <mat-card-title>{{seasonEpisode.number}}.{{seasonEpisode.name}}</mat-card-title>
+    <mat-card-content>
+      <b>Date: {{seasonEpisode.airdate}}</b><br>
+      {{seasonEpisode.summary}}
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--<div *ngIf="seasonEpisodes">-->
+  <!--<ol>-->
+    <!--<li *ngFor="let seasonEpisode of seasonEpisodes">-->
+      <!--<span>-->
+      <!--{{seasonEpisode.number}} {{seasonEpisode.name}}-->
+      <!--</span>-->
 
       <!--(A.2) conditional output: IGNORE-->
       <!--<span *ngIf="!seasonEpisode.dec">-->
         <!--<h5>Not shown yet!</h5>-->
       <!--</span>-->
-
-    </li>
-  </ol>
-</div>
+    <!--</li>-->
+  <!--</ol>-->
+<!--</div>-->
 
 
