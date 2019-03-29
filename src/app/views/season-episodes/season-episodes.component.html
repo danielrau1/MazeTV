@@ -8,7 +8,7 @@
 
 
 <div *ngIf="seasonEpisodes">
-  <mat-card *ngFor="let seasonEpisode of seasonEpisodes">
+  <mat-card class="example-card" *ngFor="let seasonEpisode of seasonEpisodes">
     <mat-card-title>{{seasonEpisode.number}}.{{seasonEpisode.name}}</mat-card-title>
     <mat-card-content>
       <b>Date: {{seasonEpisode.airdate}}</b><br>

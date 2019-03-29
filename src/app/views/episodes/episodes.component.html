@@ -6,72 +6,29 @@
 
 
 
-
-<!--  Fetching the seasons of a show when click on show's button-->
-<!--<div *ngIf="seasons">-->
-  <!--<br>-->
-  <!--<ol>-->
-    <!--<li *ngFor="let season of seasons" (click)="showEpisodes(season)">-->
-      <!--{{season.number}}-->
-      <!--<div *ngIf = "clicked2 && season.number==seasonClicked">-->
-        <!--<ol>-->
-
-          <!--<li *ngFor="let episode of episodes">-->
-            <!--<span *ngIf="episode.season==season.number">-->
-              <!--{{episode.name}}-->
-            <!--</span>-->
-          <!--</li>-->
-        <!--</ol>-->
-      <!--</div>-->
-    <!--</li>-->
-  <!--</ol>-->
-
-<!--</div>-->
-
-
-
-
-
 <!-- (2) Once the show id is obtained get that show's seasons and the episodes of each season-->
 <!--(2.1)Double Loop Version-->
+<h3><u>Double Loop Method</u></h3>
+<div *ngIf="seasons" >
+  <br>
+  <mat-list *ngFor="let season of seasons" (click)="showEpisodes(season)">
+    <!--(2.1) Loop through the seasons and for each season inclue a click showEpisodes function-->
+    <h3 mat-subheader style="background-color: lightgray; border: black 1px solid;width:50%" >Season {{season.number}}</h3>
 
-<!--<mat-accordion *ngIf="seasons">-->
-  <!--<mat-expansion-panel *ngFor="let season of seasons" >-->
-    <!--<mat-expansion-panel-header>-->
-      <!--<mat-panel-title>-->
-        <!--<h5 [innerHTML]="season.number"></h5>-->
-      <!--</mat-panel-title>-->
-    <!--</mat-expansion-panel-header>-->
-  <!--</mat-expansion-panel>-->
+      <!--(2.1.1) Output episodes for a given season-->
+      <div *ngIf = "clicked2 && season.number==seasonClicked">
+       <span *ngFor="let episode of episodes">
+         <span *ngIf = "episode.season==season.number">
+           <mat-list-item style="background-color: lightcyan; border: black 1px solid;width:50%">
+             {{episode.name}}
+           </mat-list-item>
+         </span>
+       </span>
 
-  <!--<ng-template matExpansionPanelContent *ngFor="let episode of episodes">-->
-    <!--{{episode.name}}-->
-  <!--</ng-template>-->
- <!---->
-<!--</mat-accordion>-->
+      </div>
 
-
-
-
-<!--<h3><u>Double Loop Method</u></h3>-->
-<!--<div *ngIf="seasons">-->
-  <!--<br>-->
-  <!--<ol>-->
-    <!--&lt;!&ndash;(2.1) Loop through the seasons and for each season inclue a click showEpisodes function&ndash;&gt;-->
-    <!--<li *ngFor="let season of seasons" (click)="showEpisodes(season)">-->
-      <!--{{season.number}}-->
-      <!--&lt;!&ndash;(2.1.1) Output episodes for a given season&ndash;&gt;-->
-      <!--<div *ngIf = "clicked2 && season.number==seasonClicked">-->
-       <!--<span *ngFor="let episode of episodes">-->
-         <!--<span *ngIf = "episode.season==season.number">-->
-           <!--{{episode.name}} {{episode.number}} {{season.id}}<br>-->
-         <!--</span>-->
-       <!--</span>-->
-
-      <!--</div>-->
-    <!--</li>-->
-  <!--</ol>-->
-<!--</div>-->
+  </mat-list>
+</div>
 <!--&lt;!&ndash;(2.1.2)&ndash;&gt;-->
 <!--Time right now: {{" "+time}} <br><br>-->
 <!--{{nextEpisode}}<br><br>-->
@@ -83,46 +40,20 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--(2.2) Fetching the episodes for a gives season id using season-episodes component -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 <h3><u>Send Season ID Method</u></h3>
 <div *ngIf="seasons">
-  <br>
-  <ol>
-    <li *ngFor="let season of seasons" (click)="showEpisodes(season)">
-      Season {{season.number}}
-      <div *ngIf = "clicked2 && season.number==seasonClicked">
-        <!--(2.2.1) When a season is clicked its id is sent to the season-episode component-->
-      <app-season-episodes [seasonId]="season.id"></app-season-episodes>
-      </div>
-    </li>
-  </ol>
-
+<br>
+<ol>
+<li *ngFor="let season of seasons" (click)="showEpisodes(season)">
+Season {{season.number}}
+<div *ngIf = "clicked2 && season.number==seasonClicked">
+<!--(2.2.1) When a season is clicked its id is sent to the season-episode component-->
+<app-season-episodes [seasonId]="season.id"></app-season-episodes>
+</div>
+</li>
+</ol>
 </div>
 
 
@@ -139,6 +70,209 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Try to import into an ng-table-->
+<!--<div *ngIf="episodes">-->
+<!--<table mat-table [dataSource]="episodes">-->
+<!--<ng-container matColumnDef="number">-->
+<!--<th mat-header-cell *matHeaderCellDef> Number </th>-->
+<!--<td mat-cell *matCellDef="let element"> {{element.number}} </td>-->
+<!--</ng-container>-->
+<!--<ng-container matColumnDef="name">-->
+<!--<th mat-header-cell *matHeaderCellDef> Name </th>-->
+<!--<td mat-cell *matCellDef="let element"> {{element.name}} </td>-->
+<!--</ng-container>-->
+<!--<ng-container matColumnDef="season">-->
+<!--<th mat-header-cell *matHeaderCellDef> Season </th>-->
+<!--<td mat-cell *matCellDef="let element"> {{element.season}} </td>-->
+<!--</ng-container>-->
+
+<!--<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--<tr  mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+
+<!--</table>-->
+<!--</div>-->
+
+<!--  Fetching the seasons of a show when click on show's button-->
+<!--<div *ngIf="seasons">-->
+<!--<br>-->
+<!--<ol>-->
+<!--<li *ngFor="let season of seasons" (click)="showEpisodes(season)">-->
+<!--{{season.number}}-->
+<!--<div *ngIf = "clicked2 && season.number==seasonClicked">-->
+<!--<ol>-->
+
+<!--<li *ngFor="let episode of episodes">-->
+<!--<span *ngIf="episode.season==season.number">-->
+<!--{{episode.name}}-->
+<!--</span>-->
+<!--</li>-->
+<!--</ol>-->
+<!--</div>-->
+<!--</li>-->
+<!--</ol>-->
+
+<!--</div>-->
+
+
+
+
+
+<!-- (2) Once the show id is obtained get that show's seasons and the episodes of each season-->
+<!--(2.1)Double Loop Version-->
+
+<!--<mat-accordion *ngIf="seasons">-->
+<!--<mat-expansion-panel *ngFor="let season of seasons" >-->
+<!--<mat-expansion-panel-header>-->
+<!--<mat-panel-title>-->
+<!--<h5 [innerHTML]="season.number"></h5>-->
+<!--</mat-panel-title>-->
+<!--</mat-expansion-panel-header>-->
+<!--</mat-expansion-panel>-->
+
+<!--<ng-template matExpansionPanelContent *ngFor="let episode of episodes">-->
+<!--{{episode.name}}-->
+<!--</ng-template>-->
+<!---->
+<!--</mat-accordion>-->
+
+<!--<mat-list>-->
+<!--<h3 mat-subheader>Folders</h3>-->
+<!--<mat-list-item *ngFor="let folder of folders">-->
+<!--<mat-icon mat-list-icon>folder</mat-icon>-->
+<!--<h4 mat-line>{{folder.name}}</h4>-->
+<!--<p mat-line> {{folder.updated | date}} </p>-->
+<!--</mat-list-item>-->
+
+<!--<span *ngFor="let episode of episodes">-->
+<!--DateTime:  {{episode.airdate+" "+episode.airtime}} <br>-->
+<!--</span>-->
+
+
+
+<!--(2.2) Fetching the episodes for a gives season id using season-episodes component -->
+
+<!--<h3><u>Send Season ID Method</u></h3>-->
+<!--<div *ngIf="seasons">-->
+  <!--<br>-->
+  <!--<ol>-->
+    <!--<li *ngFor="let season of seasons" (click)="showEpisodes(season)">-->
+      <!--Season {{season.number}}-->
+      <!--<div *ngIf = "clicked2 && season.number==seasonClicked">-->
+        <!--&lt;!&ndash;(2.2.1) When a season is clicked its id is sent to the season-episode component&ndash;&gt;-->
+      <!--<app-season-episodes [seasonId]="season.id"></app-season-episodes>-->
+      <!--</div>-->
+    <!--</li>-->
+  <!--</ol>-->
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Try to import into an ng-table-->
+<!--<div *ngIf="episodes">-->
+<!--<table mat-table [dataSource]="episodes">-->
+<!--<ng-container matColumnDef="number">-->
+<!--<th mat-header-cell *matHeaderCellDef> Number </th>-->
+<!--<td mat-cell *matCellDef="let element"> {{element.number}} </td>-->
+<!--</ng-container>-->
+<!--<ng-container matColumnDef="name">-->
+<!--<th mat-header-cell *matHeaderCellDef> Name </th>-->
+<!--<td mat-cell *matCellDef="let element"> {{element.name}} </td>-->
+<!--</ng-container>-->
+<!--<ng-container matColumnDef="season">-->
+<!--<th mat-header-cell *matHeaderCellDef> Season </th>-->
+<!--<td mat-cell *matCellDef="let element"> {{element.season}} </td>-->
+<!--</ng-container>-->
+
+<!--<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--<tr  mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+
+<!--</table>-->
+<!--</div>-->
+
+<!--  Fetching the seasons of a show when click on show's button-->
+<!--<div *ngIf="seasons">-->
+<!--<br>-->
+<!--<ol>-->
+<!--<li *ngFor="let season of seasons" (click)="showEpisodes(season)">-->
+<!--{{season.number}}-->
+<!--<div *ngIf = "clicked2 && season.number==seasonClicked">-->
+<!--<ol>-->
+
+<!--<li *ngFor="let episode of episodes">-->
+<!--<span *ngIf="episode.season==season.number">-->
+<!--{{episode.name}}-->
+<!--</span>-->
+<!--</li>-->
+<!--</ol>-->
+<!--</div>-->
+<!--</li>-->
+<!--</ol>-->
+
+<!--</div>-->
+
+
+
+
+
+<!-- (2) Once the show id is obtained get that show's seasons and the episodes of each season-->
+<!--(2.1)Double Loop Version-->
+
+<!--<mat-accordion *ngIf="seasons">-->
+<!--<mat-expansion-panel *ngFor="let season of seasons" >-->
+<!--<mat-expansion-panel-header>-->
+<!--<mat-panel-title>-->
+<!--<h5 [innerHTML]="season.number"></h5>-->
+<!--</mat-panel-title>-->
+<!--</mat-expansion-panel-header>-->
+<!--</mat-expansion-panel>-->
+
+<!--<ng-template matExpansionPanelContent *ngFor="let episode of episodes">-->
+<!--{{episode.name}}-->
+<!--</ng-template>-->
+<!---->
+<!--</mat-accordion>-->
+
+<!--<mat-list>-->
+<!--<h3 mat-subheader>Folders</h3>-->
+<!--<mat-list-item *ngFor="let folder of folders">-->
+<!--<mat-icon mat-list-icon>folder</mat-icon>-->
+<!--<h4 mat-line>{{folder.name}}</h4>-->
+<!--<p mat-line> {{folder.updated | date}} </p>-->
+<!--</mat-list-item>-->
 
 
 

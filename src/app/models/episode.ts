@@ -1,16 +1,18 @@
 export class Episode {
-  // dt: string;
-  // timeDiff: number;
-  // dec: boolean;
+  id: number;
+  name: string;
+  number: number;
+  airdate: Date;
+  airtime: string;
+  season: number;
+  summary: string;
 
-  constructor(){}
-
-//   constructor(public airdate: string, public airtime: string, public timeDiff: number, public dec: boolean ) {
-// this.dt = this.airdate + 'T' + this.airtime;
-// this.timeDiff = timeDiff;
-// this.dec = dec;
-//   }
-
-
-
+  constructor(args?) {
+    this.id = args.id;
+    this.name = args.name;
+    this.number = args.number;
+    this.airdate = args.airdate;
+    this.airtime = args.airtime;
+    this.summary = args.summary;
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ServiceService} from '../../models/service.service';
+import {Episode} from '../../models/episode';
 
 
 @Component({
@@ -12,12 +13,13 @@ export class EpisodesComponent implements OnInit {
 
   public showId; // (1.3)
 
-episodes: any;
+episodes: Episode[];
 seasons: any;
 seasonClicked = '';
 clicked2 = false;
 
 
+// (2.1.2)
 time: Date = new Date();
 diff: any;
 date: any;

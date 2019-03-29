@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ServiceService} from '../../models/service.service';
-import {MatSort, MatSortable, MatTableDataSource} from '@angular/material';
-
+import {Episode} from '../../models/episode';
 
 
 @Component({
@@ -12,7 +11,7 @@ import {MatSort, MatSortable, MatTableDataSource} from '@angular/material';
 export class SeasonEpisodesComponent implements OnInit {
 
   @Input() public seasonId; // (2.2.1) the transmitted season id from epiodes component
-  seasonEpisodes: any;
+  seasonEpisodes: Episode[];
 
   // date: any; // (A.2) parameters: IGNORE
 
