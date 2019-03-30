@@ -29,9 +29,9 @@
 
   </mat-list>
 </div>
-<!--&lt;!&ndash;(2.1.2)&ndash;&gt;-->
-<!--Time right now: {{" "+time}} <br><br>-->
-<!--{{nextEpisode}}<br><br>-->
+<!--(2.1.2)-->
+Time right now: {{" "+time}} <br><br>
+{{nextEpisode}}<br><br>
 
 <!--<span *ngFor="let episode of episodes">-->
             <!--DateTime:  {{episode.airdate+" "+episode.airtime}} <br>-->
@@ -45,15 +45,15 @@
 <h3><u>Send Season ID Method</u></h3>
 <div *ngIf="seasons">
 <br>
-<ol>
-<li *ngFor="let season of seasons" (click)="showEpisodes(season)">
+
+<div *ngFor="let season of seasons" (click)="showEpisodes(season)" class="border rounded">
 Season {{season.number}}
 <div *ngIf = "clicked2 && season.number==seasonClicked">
 <!--(2.2.1) When a season is clicked its id is sent to the season-episode component-->
 <app-season-episodes [seasonId]="season.id"></app-season-episodes>
 </div>
-</li>
-</ol>
+</div>
+
 </div>
 
 
